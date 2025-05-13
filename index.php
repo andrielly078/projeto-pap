@@ -5,6 +5,13 @@ session_start();
 
 // Verifica se o usuário está logado (baseado na variável de sessão)
 $isLoggedIn = isset($_SESSION['user']) ? true : false;
+
+// Obtém erros da sessão, se existirem
+$erros = isset($_SESSION['erros']) ? $_SESSION['erros'] : [];
+unset($_SESSION['erros']); // Limpa os erros após exibir
+
+// Dados do usuário da sessão (para pré-preencher o formulário)
+$userData = $isLoggedIn ? $_SESSION['user'] : [];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -37,7 +44,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
                     <a href="jantar.php">Jantar</a>
                 </div>
             </div>
-            <a href="#">CONTATO</a>
+            <a href="#">CONTACTO</a>
         </nav>
         <div class="user-options">
             <div class="menu-icon" aria-label="Abrir menu">
@@ -62,7 +69,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
         <section class="welcome-section">
             <h1>BEM-VINDO AO COZINHA EXPRESS!</h1>
             <?php if ($isLoggedIn): ?>
-                <p>Bem-vindo ao Cozinha Express, <?= htmlspecialchars($_SESSION['user']['nome']) ?>! Encontre as melhores
+                <p>Bem-vindo ao Cozinha Express, <?php echo htmlspecialchars($userData['nome']) ?>! Encontre as melhores
                     receitas rápidas e fáceis para o seu dia a dia.</p>
             <?php else: ?>
                 <p>Bem-vindo ao Cozinha Express, Encontre as melhores receitas rápidas e fáceis para o seu dia a dia.</p>
@@ -74,7 +81,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
                     <iframe src="https://youtube.com/embed/PrFfgT4yNZY" allowfullscreen></iframe>
                     <h3>Pastel de nata</h3>
                     <div class="button">
-                        <a href="pasteldenata.html?id=1" class="view-recipe-btn">Ver a Receita</a>
+                        <a href="pasteldenata.php" class="view-recipe-btn">Ver a Receita</a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,82 @@
+.detail-item{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    background-color: white;
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.profile-header{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.nome_utilizador{
+    letter-spacing: 3px;
+    font-size: 40px;
+}
+
+.email{
+    color: hsla(0, 0%, 0%, 0.4);
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.foto-perfil {
+    width: 150px; /* Tamanho pequeno do círculo */
+    height: 150px; /* Tamanho pequeno do círculo */
+    overflow: hidden; /* Garante que a imagem não ultrapasse o círculo */
+    border-radius: 50%; /* Faz o contêiner circular */
+    border: 2px solid #ff3333; /* Borda para destaque */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza a imagem */
+}
+
+.profile-image {
+    width: 100%; /* Ocupa todo o contêiner */
+    height: 100%; /* Ocupa todo o contêiner */
+    object-fit: cover; /* Mantém a proporção e corta se necessário */
+    object-position: center; /* Centraliza a imagem dentro do círculo */
+    border-radius: 50%; /* Garante que a imagem seja circular */
+    display: block; /* Remove espaços indesejados */
+}
+
+.profile-details {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 colunas de largura igual */
+    grid-template-rows: auto auto; /* 2 linhas automáticas */
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.value{
+    color: hsla(0, 0%, 0%, 0.4);
+}
+
+.alterar-dados{
+    margin-top: 100px;
+}
+
+.edit-button {
+    display: block;
+    color: rgb(255, 255, 255);
+    background-color: #ff3333;
+    border: 2px solid #000000;
+    text-align: center;
+    text-decoration: none;
+    padding: 8px 20px; /* Reduzi a altura com padding vertical menor */
+    border-radius: 15px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 410px; /* Diminui a largura máxima */
+    margin: 0 auto;
+    margin-top: 20px;
+    min-height: 40px; /* Altura mínima para manter o texto legível */
+}

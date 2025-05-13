@@ -1,4 +1,4 @@
-<s?php
+<?php
 
 // Inicia a sessão
 session_start();
@@ -8,6 +8,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <div class="logo">COZINHA EXPRESS</div>
@@ -23,10 +25,10 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
             <i class="material-icons" style="color: black;">search</i>
         </div>
         <nav>
-            <a href="#">INÍCIO</a>
-       
-           <div class="categories-menu">
-                <a href="#" onclick="toggleCategories(event)">CATEGORIAS</a>
+            <a href="index.php">INÍCIO</a>
+
+            <div class="categories-menu">
+                <a href="#" class="title">CATEGORIAS</a>
                 <div class="categories-dropdown" id="categoriesDropdown">
                     <a href="pequeno-almoco.php">Pequeno Almoço</a>
                     <a href="almoco.php">Almoço</a>
@@ -35,7 +37,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
                     <a href="jantar.php">Jantar</a>
                 </div>
             </div>
-               <a href="#">CONTATO</a>
+            <a href="#">CONTATO</a>
         </nav>
         <div class="user-options">
             <div class="menu-icon" aria-label="Abrir menu">
@@ -55,17 +57,18 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
             </div>
         </div>
     </header>
-
-    <section class="recipe-section">
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/PrFfgT4yNZY" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    <main>
+        <section class="recipe-section">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/PrFfgT4yNZY"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
-            </iframe>
+                </iframe>
 
-            <h1> Ingredientes </h1>
-        </div>
-    </section>
+                <h1> Ingredientes </h1>
+            </div>
+        </section>
+    </main>
 
     <script>
         function toggleCategories(event) {
@@ -74,7 +77,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
             categoriesDropdown.classList.toggle('active');
         }
 
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const categoriesDropdown = document.getElementById('categoriesDropdown');
             const categoriesLink = document.querySelector('.categories-menu a');
             if (!categoriesDropdown.contains(event.target) && event.target !== categoriesLink) {
@@ -83,4 +86,5 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
         });
     </script>
 </body>
+
 </html>
