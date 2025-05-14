@@ -13,8 +13,6 @@ unset($_SESSION['erros']); // Limpa os erros após exibir
 // Dados do usuário da sessão (para pré-preencher o formulário)
 $userData = $isLoggedIn ? $_SESSION['user'] : [];
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">

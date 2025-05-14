@@ -11,9 +11,10 @@ if ($searchQuery) {
     try {
         $stmt = $pdo->prepare("
             SELECT * FROM receitas 
-            WHERE titulo LIKE :query 
-            OR descricao LIKE :query 
-            OR ingredientes LIKE :query
+            WHERE LOWER(titulo) LIKE LOWER(:query) 
+            OR LOWER(descricao) LIKE LOWER(:query) 
+            OR LOWER(ingredientes) LIKE LOWER(:query)
+            OR LOWER(categoria) LIKE LOWER(:query)
             ORDER BY titulo ASC
         ");
 
@@ -22,7 +23,7 @@ if ($searchQuery) {
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch(PDOException $e) {
-        echo "Erro na pesquisa: " . $e->getMessage();
+        $error = "Erro na pesquisa: " . $e->getMessage();
     }
 }
 ?>
@@ -33,8 +34,8 @@ if ($searchQuery) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados da Pesquisa - Cozinha Express</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/search.css">
 </head>
 <body>
 <?php include 'components/header.php'; ?>
@@ -43,8 +44,10 @@ if ($searchQuery) {
     <div class="search-results">
         <h1>Resultados para: "<?php echo htmlspecialchars($searchQuery); ?>"</h1>
 
-        <?php if (empty($searchQuery)): ?>
-            <p class="no-results">Por favor, digite algo para pesquisar.</p>
+        <?php if (isset($error)): ?>
+            <p class="error"><?php echo $error; ?></p>
+        <?php elseif (empty($searchQuery)): ?>
+            <p class="no-results">Digite algo para pesquisar.</p>
         <?php elseif (empty($results)): ?>
             <p class="no-results">Nenhuma receita encontrada para "<?php echo htmlspecialchars($searchQuery); ?>".</p>
         <?php else: ?>
@@ -54,14 +57,11 @@ if ($searchQuery) {
                         <div class="video-container">
                             <iframe src="<?php echo htmlspecialchars($recipe['video_url']); ?>"
                                     allowfullscreen></iframe>
-                        </div>
-                        <h3><?php echo htmlspecialchars($recipe['titulo']); ?></h3>
-                        <p class="recipe-description">
-                            <?php echo htmlspecialchars(substr($recipe['descricao'], 0, 100)) . '...'; ?>
-                        </p>
-                        <div class="button">
-                            <a href="<?php echo htmlspecialchars($recipe['url_pagina']); ?>"
-                               class="view-recipe-btn">Ver a Receita</a>
+                            <h3><?php echo htmlspecialchars($recipe['titulo']); ?></h3>
+                            <div class="button">
+                                <a href="<?php echo htmlspecialchars($recipe['url_pagina']); ?>"
+                                   class="view-recipe-btn">Ver a Receita</a>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
