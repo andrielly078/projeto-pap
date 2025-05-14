@@ -8,6 +8,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <div class="logo">COZINHA EXPRESS</div>
@@ -23,10 +25,10 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
             <i class="material-icons" style="color: black;">search</i>
         </div>
         <nav>
-            <a href="#">INÍCIO</a>
-       
-           <div class="categories-menu">
-                <a href="#" onclick="toggleCategories(event)">CATEGORIAS</a>
+            <a href="index.php">INÍCIO</a>
+
+            <div class="categories-menu">
+                <a href="#" class="title">CATEGORIAS</a>
                 <div class="categories-dropdown" id="categoriesDropdown">
                     <a href="pequeno-almoco.php">Pequeno Almoço</a>
                     <a href="almoco.php">Almoço</a>
@@ -35,7 +37,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
                     <a href="jantar.php">Jantar</a>
                 </div>
             </div>
-               <a href="#">CONTATO</a>
+            <a href="#">CONTATO</a>
         </nav>
         <div class="user-options">
             <div class="menu-icon" aria-label="Abrir menu">
@@ -55,18 +57,15 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
             </div>
         </div>
     </header>
-
-<main>
-    <section class="recipe-section">
-        <div class="video-container">
-            <iframe width="50%" height="250" 
-            <iframe src="https://www.youtube.com/embed/PrFfgT4yNZY" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    <main>
+        <section class="recipe-section">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/PrFfgT4yNZY"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
-            </iframe>
-
-            <h1> Ingredientes </h1>
-            <ul>
+                </iframe>
+        <h1> Ingredientes </h1>
+      <ul>
 
       <li>🥐 1 embalagem de massa folhada</li>
       <li>🥛 500 ml de leite</li>
@@ -75,11 +74,10 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
       <li>🌾 60 g de farinha de trigo</li>
       <li>🍋 1 casca de limão</li>
       <li>🌿 1 pau de canela</li>
-    </ul>
+     </ul>
         </div>
-    </section>
-</main>
-
+          </section>
+    </main>
 
 
     <script>
@@ -89,7 +87,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
             categoriesDropdown.classList.toggle('active');
         }
 
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const categoriesDropdown = document.getElementById('categoriesDropdown');
             const categoriesLink = document.querySelector('.categories-menu a');
             if (!categoriesDropdown.contains(event.target) && event.target !== categoriesLink) {
@@ -98,68 +96,6 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
         });
     </script>
 
-    //Gerenciar favoritos (simples, sem banco até você integrar)
-
-        function toggleFavorite() {
-            const favoriteBtn = document.querySelector('.favorite-btn');
-            favoriteBtn.classList.toggle('favorited');
-            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            const recipeId = 1;
-            const index = favorites.indexOf(recipeId);
-            if (index === -1) {
-                favorites.push(recipeId);
-            } else {
-                favorites.splice(index, 1);
-            }
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-            // Placeholder para abrir aba de favoritos (a ser programado por você)
-            console.log('Favoritar clicado - Adicione lógica para abrir aba de favoritos');
-        }
-
-        // Gerenciar comentários com localStorage (temporário)
-        function addComment(event) {
-            event.preventDefault();
-            if (!<?php echo $isLoggedIn ? 'true' : 'false'; ?>) return;
-
-            const commentText = document.getElementById('comment-text').value.trim();
-            if (!commentText) return;
-
-            let comments = JSON.parse(localStorage.getItem('comments')) || [];
-            comments.push({
-                user: 'Usuário Anônimo',
-                text: commentText,
-                date: new Date().toLocaleString()
-            });
-            localStorage.setItem('comments', JSON.stringify(comments));
-
-            displayComments();
-            document.getElementById('comment-text').value = '';
-        }
-
-        // Exibir comentários
-        function displayComments() {
-            const commentsList = document.getElementById('comments-list');
-            commentsList.innerHTML = '';
-            const comments = JSON.parse(localStorage.getItem('comments')) || [];
-            comments.forEach(comment => {
-                const commentDiv = document.createElement('div');
-                commentDiv.classList.add('comment');
-                commentDiv.innerHTML = `
-                    <p><strong>${comment.user}</strong> - ${comment.date}</p>
-                    <p>${comment.text}</p>
-                `;
-                commentsList.appendChild(commentDiv);
-            });
-        }
-
-        // Carregar comentários ao iniciar a página
-        window.onload = function() {
-            displayComments();
-            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            if (favorites.includes(1)) {
-                document.querySelector('.favorite-btn').classList.add('favorited');
-            }
-        };
-    </script>
+  
 </body>
 </html>

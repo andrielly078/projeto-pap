@@ -70,10 +70,19 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
 
              <div class="recipe-card">
                 <div class="video-container">
+                    <iframe src="https://youtube.com/embed/0AiiBDpsH_Y" allowfullscreen></iframe>
+                    <h3>Torradas</h3>
+                    <div class="button">
+                        <a href="torradas.php" class="view-recipe-btn">Ver a Receita</a>
+                    </div>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <div class="video-container">
                     <iframe src="https://youtube.com/embed/J5bC17RdsNs" allowfullscreen></iframe>
                     <h3>Pão com churiço</h3>
                     <div class="button">
-                        <a href="pasteldenata.php" class="view-recipe-btn">Ver a Receita</a>
+                        <a href="paocomchouriço.php" class="view-recipe-btn">Ver a Receita</a>
                     </div>
                 </div>
             </div>
