@@ -1,0 +1,29 @@
+.search-results {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-results h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.no-results {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+
+.recipe-description {
+    color: #666;
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}

@@ -1,12 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
 body {
-    background-color: #f5f5f5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +12,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('assets/background.jpg'); /* Imagem de fundo */
+    background-image: url('../assets/background.jpg'); /* Imagem de fundo */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -57,7 +49,8 @@ body::before {
     margin-bottom: 5px;
 }
 
-.form-container input {
+.form-container input,
+.form-container select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -65,6 +58,12 @@ body::before {
     border-radius: 5px;
     font-size: 14px;
     color: #333;
+}
+
+.form-container select {
+    appearance: none;
+    background: url('https://via.placeholder.com/20') no-repeat right 10px center;
+    background-size: 20px;
 }
 
 .form-container button {
@@ -95,4 +94,8 @@ body::before {
 
 .form-container .links a:hover {
     text-decoration: underline;
+}
+
+.hidden {
+    display: none;
 }
