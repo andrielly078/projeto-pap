@@ -1,33 +1,35 @@
 <?php
+// components/header.php
 
-// Inicia a sessão
-session_start();
+// Garantir que a sessão está iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Verifica se o usuário está logado (baseado na variável de sessão)
+// Verifica se o usuário está logado
 $isLoggedIn = isset($_SESSION['user']) ? true : false;
 ?>
-
-<!DOCTYPE html>
-<html lang="pt-PT">
-
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Little lunch</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <title>Document</title>
 </head>
-
-<body>
 <header>
     <div class="logo">COZINHA EXPRESS</div>
     <div class="search-bar">
-        <input type="text" placeholder="Digite sua pesquisa aqui">
-        <i class="material-icons" style="color: black;">search</i>
+        <form action="search.php" method="GET">
+            <input type="text" name="query" placeholder="Digite sua pesquisa aqui">
+            <button type="submit" class="search-button">
+                <i class="material-icons" style="color: black;">search</i>
+            </button>
+        </form>
     </div>
     <nav>
         <a href="index.php">INÍCIO</a>
-
         <div class="categories-menu">
             <a href="#" class="title">CATEGORIAS</a>
             <div class="categories-dropdown" id="categoriesDropdown">
@@ -38,7 +40,7 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
                 <a href="jantar.php">Jantar</a>
             </div>
         </div>
-        <a href="#">CONTATO</a>
+        <a href="#">CONTACTO</a>
     </nav>
     <div class="user-options">
         <div class="menu-icon" aria-label="Abrir menu">
@@ -58,8 +60,4 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
         </div>
     </div>
 </header>
-<main>
-
-</main>
-</body>
 </html>

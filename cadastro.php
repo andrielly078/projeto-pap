@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    $erros = isset($_SESSION['erros']) ? $_SESSION['erros'] : [];
-    unset($_SESSION['erros']); // Limpa os erros após exibir
+session_start();
+$erros = isset($_SESSION['erros']) ? $_SESSION['erros'] : [];
+unset($_SESSION['erros']); // Limpa os erros após exibir
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -9,9 +9,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Cozinha Express</title>
-    <link rel="stylesheet" href="styleCadastro.css">
+    <link rel="stylesheet" href="styles/styleCadastro.css">
+    <link rel="stylesheet" href="styles/header.css">
 </head>
 <body>
+<main>
     <div class="form-container">
         <div class="logo">COZINHA EXPRESS</div>
         <h2>Cadastro</h2>
@@ -57,5 +59,6 @@
             </div>
         </form>
     </div>
+</main>
 </body>
 </html>
