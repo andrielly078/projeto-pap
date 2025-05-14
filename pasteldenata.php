@@ -66,6 +66,15 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
             </iframe>
 
             <h1> Ingredientes </h1>
+<ul>
+        <li>500 ml de leite</li>
+        <li>6 gemas de ovo</li>
+        <li>200 g de açúcar</li>
+        <li>60 g de farinha de trigo</li>
+        <li>1 casca de limão</li>
+        <li>1 pau de canela</li>
+        <li>1 embalagem de massa folhada pronta</li>
+    </ul>
         </div>
     </section>
 </main>
