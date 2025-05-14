@@ -37,7 +37,6 @@ $userData = $isLoggedIn ? $_SESSION['user'] : [];
             <div class="categories-menu">
                 <a href="#" class="title">CATEGORIAS</a>
                 <div class="categories-dropdown" id="categoriesDropdown">
-                    <a href="pequeno-almoco.php">Pequeno Almoço</a>
                     <a href="almoco.php">Almoço</a>
                     <a href="sobremesas.php">Sobremesas</a>
                     <a href="lanches.php">Lanches</a>
@@ -87,10 +86,10 @@ $userData = $isLoggedIn ? $_SESSION['user'] : [];
             </div>
             <div class="recipe-card">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/noDZZXzImv8" allowfullscreen></iframe>
-                    <h3>Pão de queijo</h3>
+                    <iframe src="https://www.youtube.com/embed/QXw6C437YwM" allowfullscreen></iframe>
+                    <h3>Arroz Doce</h3>
                     <div class="button">
-                        <a href="paodequeijo.html?id=1" class="view-recipe-btn">Ver a Receita</a>
+                        <a href="arrozdoce.html?id=1" class="view-recipe-btn">Ver a Receita</a>
                     </div>
                 </div>
             </div>

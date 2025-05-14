@@ -30,7 +30,6 @@ $isLoggedIn = isset($_SESSION['user']) ? true : false;
             <div class="categories-menu">
                 <a href="#" class="title">CATEGORIAS</a>
                 <div class="categories-dropdown" id="categoriesDropdown">
-                    <a href="pequeno-almoco.php">Pequeno Almoço</a>
                     <a href="almoco.php">Almoço</a>
                     <a href="sobremesas.php">Sobremesas</a>
                     <a href="lanches.php">Lanches</a>
