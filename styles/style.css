@@ -91,3 +91,9 @@ span {
     position: relative;
     display: inline-block;
 }
+
+.video-embed {
+    width: 100%;
+    height: 450px; /* Altura fixa personalizada */
+    border: none;
+}
