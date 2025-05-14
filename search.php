@@ -11,10 +11,7 @@ if ($searchQuery) {
     try {
         $stmt = $pdo->prepare("
             SELECT * FROM receitas 
-            WHERE LOWER(titulo) LIKE LOWER(:query) 
-            OR LOWER(descricao) LIKE LOWER(:query) 
-            OR LOWER(ingredientes) LIKE LOWER(:query)
-            OR LOWER(categoria) LIKE LOWER(:query)
+            WHERE LOWER(titulo) LIKE LOWER(:query)
             ORDER BY titulo ASC
         ");
 

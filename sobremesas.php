@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 // Inicia a sessão
@@ -26,126 +25,88 @@ $userData = $isLoggedIn ? $_SESSION['user'] : [];
 </head>
 
 <body>
-    <header>
-        <div class="logo">COZINHA EXPRESS</div>
-        <div class="search-bar">
-            <input type="text" placeholder="Digite sua pesquisa aqui">
-            <i class="material-icons" style="color: black;">search</i>
-        </div>
-        <nav>
-            <a href="#">INÍCIO</a>
-
-            <div class="categories-menu">
-                <a href="#" class="title">CATEGORIAS</a>
-                <div class="categories-dropdown" id="categoriesDropdown">
-                    <a href="almoco.php">Almoço</a>
-                    <a href="sobremesas.php">Sobremesas</a>
-                    <a href="lanches.php">Lanches</a>
-                    <a href="jantar.php">Jantar</a>
-                </div>
-            </div>
-            <a href="#">CONTACTO</a>
-        </nav>
-        <div class="user-options">
-            <div class="menu-icon" aria-label="Abrir menu">
-                <input type="checkbox" class="menu-toggle" id="menu-toggle">
-                <label for="menu-toggle" style="cursor: pointer;">
-                    <i class="material-icons">menu</i>
-                </label>
-                <div class="dropdown-menu">
-                    <?php if ($isLoggedIn): ?>
-                        <a href="conta.php"><i class="material-icons">person</i><span>Conta</span></a>
-                        <a href="logout.php"><i class="material-icons">logout</i><span>Sair</span></a>
-                    <?php else: ?>
-                        <a href="cadastro.php"><i class="material-icons">person</i><span>Login/Cadastrar</span></a>
-                    <?php endif; ?>
-                    <a href="#configuracoes"><i class="material-icons">settings</i><span>Configurações</span></a>
+<?php include 'components/header.php'; ?>
+</section>
+<main>
+    <section class="recipes-grid">
+        <div class="recipe-card">
+            <div class="video-container">
+                <iframe src="https://youtube.com/embed/PrFfgT4yNZY" allowfullscreen></iframe>
+                <h3>Pastel de nata</h3>
+                <div class="button">
+                    <a href="pasteldenata.php" class="view-recipe-btn">Ver a Receita</a>
                 </div>
             </div>
         </div>
-    </header>
-  </section>
-        <section class="recipes-grid">
-            <div class="recipe-card">
-                <div class="video-container">
-                    <iframe src="https://youtube.com/embed/PrFfgT4yNZY" allowfullscreen></iframe>
-                    <h3>Pastel de nata</h3>
-                    <div class="button">
-                        <a href="pasteldenata.php" class="view-recipe-btn">Ver a Receita</a>
-                    </div>
+        <div class="recipe-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/QXw6C437YwM" allowfullscreen></iframe>
+                <h3>Arroz Doce</h3>
+                <div class="button">
+                    <a href="arrozdoce.html?id=1" class="view-recipe-btn">Ver a Receita</a>
                 </div>
             </div>
-            <div class="recipe-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/QXw6C437YwM" allowfullscreen></iframe>
-                    <h3>Arroz Doce</h3>
-                    <div class="button">
-                        <a href="arrozdoce.html?id=1" class="view-recipe-btn">Ver a Receita</a>
-                    </div>
-                </div>
-            </div>
+        </div>
 
-            <div class="recipe-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/olw3gMc4YlU" allowfullscreen></iframe>
-                    <h3>Pudim</h3>
-                </div>
-                <div class="button">
-                    <a href="pudim.html?id=1" class="view-recipe-btn">Ver a Receita</a>
-                </div>
+        <div class="recipe-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/olw3gMc4YlU" allowfullscreen></iframe>
+                <h3>Pudim</h3>
             </div>
+            <div class="button">
+                <a href="pudim.html?id=1" class="view-recipe-btn">Ver a Receita</a>
+            </div>
+        </div>
 
-            <div class="recipe-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/TjITKiaDb1E" allowfullscreen></iframe>
-                    <h3>Toucinho do Céu</h3>
-                </div>
-                <div class="button">
-                    <a href="toucinhodoceu.html?id=1" class="view-recipe-btn">Ver a Receita</a>
-                </div>
+        <div class="recipe-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/TjITKiaDb1E" allowfullscreen></iframe>
+                <h3>Toucinho do Céu</h3>
             </div>
+            <div class="button">
+                <a href="toucinhodoceu.html?id=1" class="view-recipe-btn">Ver a Receita</a>
+            </div>
+        </div>
 
-           
 
-            <div class="recipe-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/uLT2jwb3XQI" allowfullscreen></iframe>
-                </div>
-                <h3>Bolo Red Velvet</h3>
-                <div class="button">
-                    <a href="bolovelvelt.html?id=1" class="view-recipe-btn">Ver a Receita</a>
-                </div>
+        <div class="recipe-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/uLT2jwb3XQI" allowfullscreen></iframe>
             </div>
-              
-              <div class="recipe-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/UkqRxcOonWM" allowfullscreen></iframe>
-                </div>
-                <h3> Serradura </h3>
-                <div class="button">
-                    <a href="bolovelvelt.html?id=1" class="view-recipe-btn">Ver a Receita</a>
-                </div>
+            <h3>Bolo Red Velvet</h3>
+            <div class="button">
+                <a href="bolovelvelt.html?id=1" class="view-recipe-btn">Ver a Receita</a>
             </div>
-             <div class="recipe-card">
-                <div class="video-container">
-                    <iframe src=" https://www.youtube.com/embed/6b8mygSR51s" allowfullscreen></iframe>
-                </div>
-                <h3>Brigadeiro</h3>
-                <div class="button">
-                    <a href="coxinha.html?id=1" class="view-recipe-btn">Ver a Receita</a>
-                </div>
+        </div>
+
+        <div class="recipe-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/UkqRxcOonWM" allowfullscreen></iframe>
             </div>
-        
-             <div class="recipe-card">
-                <div class="video-container">
-                    <iframe src=" https://www.youtube.com/embed/fqcy1POesIU" allowfullscreen></iframe>
-                </div>
-                <h3>Bolo de Rolo</h3>
-                <div class="button">
-                    <a href="coxinha.html?id=1" class="view-recipe-btn">Ver a Receita</a>
-                </div>
+            <h3> Serradura </h3>
+            <div class="button">
+                <a href="bolovelvelt.html?id=1" class="view-recipe-btn">Ver a Receita</a>
             </div>
-        </section>
-=======
-<iframe src="https://youtube.com/embed/PrFfgT4yNZY" allowfullscreen></iframe>
->>>>>>> 116969c2eac460f7d3579bed52c312ede330b848
+        </div>
+        <div class="recipe-card">
+            <div class="video-container">
+                <iframe src=" https://www.youtube.com/embed/6b8mygSR51s" allowfullscreen></iframe>
+            </div>
+            <h3>Brigadeiro</h3>
+            <div class="button">
+                <a href="coxinha.html?id=1" class="view-recipe-btn">Ver a Receita</a>
+            </div>
+        </div>
+
+        <div class="recipe-card">
+            <div class="video-container">
+                <iframe src=" https://www.youtube.com/embed/fqcy1POesIU" allowfullscreen></iframe>
+            </div>
+            <h3>Bolo de Rolo</h3>
+            <div class="button">
+                <a href="coxinha.html?id=1" class="view-recipe-btn">Ver a Receita</a>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
